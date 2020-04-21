@@ -1,0 +1,5 @@
+# These are files that should be packaged for gplvm C++ software
+dir: examples
+~/datasets/mocap/Swagger.bvh
+dir: html
+~/mlprojects/mocap/html/index.html
