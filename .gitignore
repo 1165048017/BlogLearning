@@ -123,3 +123,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+openpose/pose_iter_440000.caffemodel
