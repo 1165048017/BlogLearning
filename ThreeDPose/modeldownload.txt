@@ -1,0 +1,6 @@
+百度网盘
+链接：https://pan.baidu.com/s/1TsvALWJRIoCAtQ9ffcno7w
+提取码：rfow
+
+官方下载地址：
+https://digital-standard.com/threedpose/models/Resnet34_3inputs_448x448_20200609.onnx
