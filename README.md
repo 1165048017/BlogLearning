@@ -55,7 +55,7 @@
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6wbiaaDDNBL0NonfVO00vsQ8fic5GeKmkMGFR6MbduW690PMG6jRcgfhkzmmsAZEwIlibH7RDBXSvicDQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 素描滤镜
-[代码](https://github.com/1165048017/BlogLearning/tree/master/PSPencilDraw)，[https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484007&idx=1&sn=acb19d4c52891021f46fd6ecc167bf99&chksm=fc32a843cb452155e2dd23a92b6613af47e854c0bd6e19a5a58912d0a5dac25faaa9b3901a6c&token=2041151839&lang=zh_CN#rd]
+[代码](https://github.com/1165048017/BlogLearning/tree/master/PSPencilDraw)，(理论)[https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484007&idx=1&sn=acb19d4c52891021f46fd6ecc167bf99&chksm=fc32a843cb452155e2dd23a92b6613af47e854c0bd6e19a5a58912d0a5dac25faaa9b3901a6c&token=2041151839&lang=zh_CN#rd]
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zs6cZQr4qnkTjK4ckuCxzbFZkUQ0MfPrGC5k7l1AUmEWUOx4nlCZwzYBgdFVMT2HRiaAtGZ4bWYSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
