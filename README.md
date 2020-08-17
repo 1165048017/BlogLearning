@@ -1,4 +1,9 @@
 # BlogLearning
+## 持续更新
+欢迎关注微信公众号，持续更新相关理论和代码
+
+![](https://img-blog.csdnimg.cn/20200804205140462.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3piMTE2NTA0ODAxNw==,size_16,color_FFFFFF,t_70)
+
 ## 2D姿态估计PoseNet
 [代码](https://github.com/1165048017/BlogLearning/tree/master/posenet)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247483864&idx=1&sn=3de09758fa2536bf836af83095b4b0ad&chksm=fc32abfccb4522ea29ffbac50bb6ca3f361d48ee0a818401975d8d1b585f3cb9e7376a42d72f&token=2041151839&lang=zh_CN#rd)
 
@@ -55,7 +60,7 @@
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6wbiaaDDNBL0NonfVO00vsQ8fic5GeKmkMGFR6MbduW690PMG6jRcgfhkzmmsAZEwIlibH7RDBXSvicDQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 素描滤镜
-[代码](https://github.com/1165048017/BlogLearning/tree/master/PSPencilDraw)，[https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484007&idx=1&sn=acb19d4c52891021f46fd6ecc167bf99&chksm=fc32a843cb452155e2dd23a92b6613af47e854c0bd6e19a5a58912d0a5dac25faaa9b3901a6c&token=2041151839&lang=zh_CN#rd]
+[代码](https://github.com/1165048017/BlogLearning/tree/master/PSPencilDraw)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484007&idx=1&sn=acb19d4c52891021f46fd6ecc167bf99&chksm=fc32a843cb452155e2dd23a92b6613af47e854c0bd6e19a5a58912d0a5dac25faaa9b3901a6c&token=2041151839&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zs6cZQr4qnkTjK4ckuCxzbFZkUQ0MfPrGC5k7l1AUmEWUOx4nlCZwzYBgdFVMT2HRiaAtGZ4bWYSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
