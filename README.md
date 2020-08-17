@@ -19,6 +19,11 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6woicmNPgyfodOictvXW54kd0tq6SEY3icfYaanHA57IEk9E8cfMujNpMMuOKlROaiabYY6c6xd2ZicYcw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## OpenVINO道路分割
+[代码](https://github.com/1165048017/BlogLearning/tree/master/OpenVINO), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484027&idx=1&sn=d2471bd2adbe16a8367969089e900e10&chksm=fc32a85fcb452149ecaf59540fc5ec53365904425e937845238ab00e39b21fb941ed750e737f&token=826172642&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ynXrXDKuicAS2Nr9PVVDT4nRNSdbCNNeRzl0uZUJCdmkNht44PS4arGIh3xbUyQtIUW70f3vAHKeA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## 拉普拉斯锐化
 [代码](https://github.com/1165048017/BlogLearning/tree/master/sharpenImage)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247483842&idx=1&sn=9b002f34f265b7f036567c6de7aab330&chksm=fc32abe6cb4522f09c8c42494dbe9a0f0072b1404bd0a524e1e209c32377e973c313669121d6&token=2041151839&lang=zh_CN#rd)
 
