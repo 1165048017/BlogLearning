@@ -36,8 +36,18 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6yGbl01jgvWLeM4g0sCZllxueWydOy1xo3OWDmcGbhNsvQPpdfekDwTrtojHhOzq1cttFS9aCWtuQ/0?wx_fmt=png)
 
+## 颜色迁移
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/ColorTransfer)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484038&idx=1&sn=6a9a21b5616011ffd4ba53cf37bfe23b&chksm=fc32a8a2cb4521b4e3c92fa58f52e1d8ab4f3fad033bcade9cd92c5384b3655394e685b7071c&token=912918227&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6y64qLYsE5AqYKOOkg6vOLVgrkMZpyZ4CHMWByR6JL6w7s7wea2bunyfevCOOAh224dkicdQ3Xg7kw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6y64qLYsE5AqYKOOkg6vOLVgzRiaAGWtQ7VTsD0mQShVsQ6CTXTE4y7GicK2E7ou7ug72ia6doomt3Aw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6y64qLYsE5AqYKOOkg6vOLVgng6YL4vFqCX9QueVqZxZrTB6dibRsBTwDJf52rZXm2C4hkp4Ogv8qg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 动态时间规整
+
 [代码](https://github.com/1165048017/BlogLearning/tree/master/DTW),  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247483836&idx=1&sn=cb31e3c8b4e256c1b6e0998d075008c7&chksm=fc32ab98cb45228e5ad1f1f44f62a6e7b0f3be18f0860a85f181df4bf31ab89620269e2796ab&token=2041151839&lang=zh_CN#rd) 
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6xMJxKBtJ93gE70Xlv5OugOE6WI2kNQdPQS7TAVuEBiaNPAImMOpg4Fz472zsQh6kiaOZGCapjaNnlA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
