@@ -118,7 +118,7 @@ bool MyTestApp::frameRenderingQueued(const FrameEvent &evt){
 	TransformKeyFrame *newKF = tracksnew->createNodeKeyFrame(i);
 	Quaternion quat;
 	quat.FromAngleAxis(Degree(i%2? 0.0f: -90.0f), Vector3::UNIT_X);
-	newKF->setRotation(lknee->getOrientation().Inverse() * quat);
+	newKF->setRotation(quat);
 	ent->refreshAvailableAnimationState();
 	std::cout << as->getTimePosition() << std::endl;
 
