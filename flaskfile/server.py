@@ -1,5 +1,5 @@
 from werkzeug.utils import secure_filename
-from flask import Flask,render_template,jsonify,request,url_for,send_from_directory
+from flask import Flask,render_template,jsonify,request,url_for,send_from_directory,redirect
 import time
 import os
 import base64
@@ -30,7 +30,7 @@ def api_upload():
     fname = request.form["name"]
     if f and allowed_file(fname):  # 判断是否是允许上传的文件类型
         f.save(os.path.join(file_dir,fname))  #保存文件到upload目录 
-        print(url_for('uploaded_file',filename=fname))
+        #return redirect(url_for('uploaded_file',filename=fname))
         return jsonify({"succeed":'True',"msg":"upload succeed"})
     else:
         return jsonify({"succeed":'False',"msg":"upload failed"})
