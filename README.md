@@ -81,6 +81,12 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6z35RtJiaadibZDgRmGmDoSR66bam6c25uhDL56Bc2zZn6Btr64IWE0Sfl0mibkKiaep8pfshDCnbiaW9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## 仿射变换和透视变换
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/transform)  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484096&idx=1&sn=b5c0ae895b0ea8b8c36474061615db6a&chksm=fc32a8e4cb4521f2806c9011f36416c30df28e4ebdbe50f62bdd2a5a3187dc2dc315faec7d6e&token=1146064727&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6y854ibfmGmUMZKibCtIk0TnWsw6aMMnJYJcD0XVKES3iaEURDQYV3ftGG8Bo33pW6J1jbIQ410darKQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## 基于高反差保留的高通滤波磨皮祛斑
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/HighPassSkinSmoothing)，[理论](http://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484017&idx=1&sn=979680d6d92ef8fa3a9cbd95295881e0&chksm=fc32a855cb452143cbabf1b576625d7a7e5ce03e6fbf4ed1cb34660060571db7aeaa4cfa724c&token=2041151839&lang=zh_CN#rd)
