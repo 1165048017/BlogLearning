@@ -19,7 +19,14 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6woicmNPgyfodOictvXW54kd0tq6SEY3icfYaanHA57IEk9E8cfMujNpMMuOKlROaiabYY6c6xd2ZicYcw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## OBJ格式解析
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/ObjBodyFile)  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484102&idx=1&sn=902d7123e0e9d65363406650484f304c&chksm=fc32a8e2cb4521f426ed059b5c12c14b8d1409c9baa166cc6c291dac6c9a8c63dbcbdd6265f3&token=1146064727&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6wM67jPu7g7dzWuVDtPjNOuyZsiaiakqaqhDy2aWriaqAibM51Rd0be3ibKYSTsFQ14nMbBUG1u6icCsaqQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## OpenVINO道路分割
+
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpenVINO), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484027&idx=1&sn=d2471bd2adbe16a8367969089e900e10&chksm=fc32a85fcb452149ecaf59540fc5ec53365904425e937845238ab00e39b21fb941ed750e737f&token=826172642&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ynXrXDKuicAS2Nr9PVVDT4nRNSdbCNNeRzl0uZUJCdmkNht44PS4arGIh3xbUyQtIUW70f3vAHKeA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -68,13 +75,20 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zVDvwIleicxPH35jBuNouPSia5T0ibGyDLxHkpJOqehibpqkjnmj1KK4vaIF3NnicAaRsPj5XAggBKkqQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## OpenCV轮廓检测
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/contours)   [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484137&idx=1&sn=4dbec20bbd711dac52cbc5597421f6ae&chksm=fc32a8cdcb4521db470b36b40e98a710dc2743c163894a0e2d75c96008d60d0220e03c2a2394&token=1146064727&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6z35RtJiaadibZDgRmGmDoSR66bam6c25uhDL56Bc2zZn6Btr64IWE0Sfl0mibkKiaep8pfshDCnbiaW9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 基于高反差保留的高通滤波磨皮祛斑
+
 [代码](https://github.com/1165048017/BlogLearning/tree/master/HighPassSkinSmoothing)，[理论](http://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484017&idx=1&sn=979680d6d92ef8fa3a9cbd95295881e0&chksm=fc32a855cb452143cbabf1b576625d7a7e5ce03e6fbf4ed1cb34660060571db7aeaa4cfa724c&token=2041151839&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6wbiaaDDNBL0NonfVO00vsQ8fic5GeKmkMGFR6MbduW690PMG6jRcgfhkzmmsAZEwIlibH7RDBXSvicDQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 素描滤镜
+
 [代码](https://github.com/1165048017/BlogLearning/tree/master/PSPencilDraw)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484007&idx=1&sn=acb19d4c52891021f46fd6ecc167bf99&chksm=fc32a843cb452155e2dd23a92b6613af47e854c0bd6e19a5a58912d0a5dac25faaa9b3901a6c&token=2041151839&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zs6cZQr4qnkTjK4ckuCxzbFZkUQ0MfPrGC5k7l1AUmEWUOx4nlCZwzYBgdFVMT2HRiaAtGZ4bWYSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -125,4 +139,8 @@
 ## opencv调用tensorflow2.0模型
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpencvTensorflow2)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484019&idx=1&sn=8a5b4286393da84f2c80690962d75e4c&chksm=fc32a857cb4521410913537bc56cafc45328a0a8e819855f443b2eb7fca85fb38f54bab94ca9&token=2041151839&lang=zh_CN#rd)
 
+## flask 服务部署
 
+[代码](https://github.com/1165048017/BlogLearning/tree/master/flaskfile) [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484110&idx=1&sn=8b666558e617dae59680a4d8e605ad03&chksm=fc32a8eacb4521fc1614be4584acc1c9d620f56245ca7b12170cad8e14b1a0274d7257e8f05f&token=1146064727&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/e9lAmYolz6w4sKM1ia5lXXE1ibYyiagoCnN5Gw9l69ttib9VPUsh20lIeZW61hrJfibUFOJXIF7odzBeledhhLtJFibg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
