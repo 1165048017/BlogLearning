@@ -81,6 +81,12 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6z35RtJiaadibZDgRmGmDoSR66bam6c25uhDL56Bc2zZn6Btr64IWE0Sfl0mibkKiaep8pfshDCnbiaW9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## 形态学
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/Morphological)  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484188&idx=1&sn=30ffb437233f913692dbc01ff8472ff3&chksm=fc32a938cb45202eff17b7f9123c50d18099847c2ae53f3b489bba592224b3be868809fd66e2&token=452754261&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6yx0MHBfdibmAsS3kOzlyD9ZuLNVz5jOxJfW4USrpQ14Zq1usTclaFtibwxjrrictziaVrg8xlOvSn9Zw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## 仿射变换和透视变换
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/transform)  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484096&idx=1&sn=b5c0ae895b0ea8b8c36474061615db6a&chksm=fc32a8e4cb4521f2806c9011f36416c30df28e4ebdbe50f62bdd2a5a3187dc2dc315faec7d6e&token=1146064727&lang=zh_CN#rd)
