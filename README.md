@@ -133,7 +133,14 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6yibhkk6QoImu5kfGUiblv0L1HutSn22UDgZ4iaPbEtD4GZwV5yBKcImpDXIo1c5Nq5IwK5zgicOqF6Dw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## RBF神经网络分类
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/RBF/RBFClassify) ,  [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484161&idx=1&sn=9c19778f84d1357f38ea3016e450f102&chksm=fc32a925cb45203385ed7571bf6076ebdc2042cdb54be42bc75f9a9457118c8f87b9b487af79&token=228729342&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6xtgA7ttUy9WWsvF1t6QltVdjTx82U3cSf0NNmgXFPpqtqx0LbkvVspm0OY5Ws7hPSUrlgibyZrOGw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## 样条插值
+
 [代码](https://github.com/1165048017/BlogLearning/tree/master/splineinterp)，[理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247483793&idx=1&sn=dd2c3ed20c192f3d748a84b7e51ee628&chksm=fc32abb5cb4522a308959890a94d81151fa594b36f0a788377da366c439046cda9160d50b3c8&token=2041151839&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6y1dsSDobOY2NENtwswxpOczY101ntTtY3BQrUN5g32GSO3ficdlIy3ZMa2ias5ArVl11FeS4W8IMgg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
