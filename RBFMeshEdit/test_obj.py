@@ -66,7 +66,7 @@ func_name = "gaussian_spline"
 # RBF radius
 radius = getRadius(verts1)
 print("mesh1:{0},mesh2:{1}\n".format(radius,getRadius(verts2)))
-rbf = RBF(original_control_points,deformed_control_points,func_name,0.5)# radius
+rbf = RBF(original_control_points,deformed_control_points,func_name,2)# radius
 new_verts = rbf(verts1)
 writeWithColor(new_verts,faces1,verts1_index,"deformed.obj")
 print("new radius:",getRadius(new_verts))

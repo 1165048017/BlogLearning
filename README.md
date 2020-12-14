@@ -25,6 +25,12 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6wM67jPu7g7dzWuVDtPjNOuyZsiaiakqaqhDy2aWriaqAibM51Rd0be3ibKYSTsFQ14nMbBUG1u6icCsaqQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## RBF网格编辑
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/RBFMeshEdit), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484201&idx=1&sn=3ec8b40f368bf9fd6cc7c6083ad4a259&chksm=fc32a90dcb45201b3c82b2a23e74ff9e78d023cea46443629f54d889ffd508ddc51063f53b09&token=602398075&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_gif/e9lAmYolz6yOibGgyeUv0vuzbpJoFGxnyf73aIZsHLsxLw5Fvs6IrGjCSrSoNLwUrn6IRuqtuXvLDeq3qjibU4mA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
+
 ## OpenVINO道路分割
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpenVINO), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484027&idx=1&sn=d2471bd2adbe16a8367969089e900e10&chksm=fc32a85fcb452149ecaf59540fc5ec53365904425e937845238ab00e39b21fb941ed750e737f&token=826172642&lang=zh_CN#rd)
