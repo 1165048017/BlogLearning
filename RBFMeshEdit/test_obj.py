@@ -37,28 +37,39 @@ def writeWithColor(v,f,index,name):
         fp.write("f {0} {1} {2} \n".format(f[i,0],f[i,1],f[i,2]))
     fp.close()
 
-verts,faces = read("test.obj")
+def getRadius(verts):
+    center = np.array([0,0,0])
+    for i in range(verts.shape[0]):
+        center = center + verts[i,...]
+    center = center/verts.shape[0]
+    radius = 0
+    for i in range(verts.shape[0]):
+        if(radius<np.linalg.norm(verts[i,...]-center)):
+            radius = np.linalg.norm(verts[i,...]-center)
+    return radius
 
-# 查找五个关键点
-face_index = 3375#np.arange(3313,3320)
-print(np.unique(faces[face_index,...].flatten()))
-verts_index = np.array([1932,4954,5345,1528,1950,1380,3037,4024])# 左嘴角、右嘴角、上嘴唇、下嘴唇、下巴、左耳、右耳、头顶
+verts1,faces1 = read("test1.obj")
+verts1_index = [3250,226,	3130,3977,3620,3270,  93,956,597,247,	   332,2443,2609,2411,3097,76,  4954,2360,1931,1547,2309,1506,  1833,2207]
 
-writeWithColor(verts,faces,verts_index,"out.obj")
+verts2,faces2 = read("test2.obj")
+verts2_index = [265,995,	1247,1248,100,591,    792,671,1252,1250,	574,610,785,578,32,812,     92,1228,800,1236,1242,620,      619,607]
+
+
+writeWithColor(verts1,faces1,verts1_index,"out1.obj")
+writeWithColor(verts2,faces2,verts2_index,"out2.obj")
 
 # RBF变形
-original_control_points = verts[verts_index,...]
-deformed_control_points  = verts[verts_index,...]
-deformed_control_points[3,...] = deformed_control_points[4,...] + np.array([0,2,0])
-deformed_control_points[4,...] = deformed_control_points[5,...] + np.array([0,12,0])
+original_control_points = verts1[verts1_index,...]
+deformed_control_points  = verts2[verts2_index,...]
 # RBF function
 func_name = "gaussian_spline"
 # RBF radius
-radius = 0.5
-rbf = RBF(original_control_points,deformed_control_points,func_name,radius)
-new_verts = rbf(verts)
-write(new_verts,faces,"deformed.obj")
-
+radius = getRadius(verts1)
+print("mesh1:{0},mesh2:{1}\n".format(radius,getRadius(verts2)))
+rbf = RBF(original_control_points,deformed_control_points,func_name,0.5)# radius
+new_verts = rbf(verts1)
+writeWithColor(new_verts,faces1,verts1_index,"deformed.obj")
+print("new radius:",getRadius(new_verts))
 '''
 plot 3D 
 '''

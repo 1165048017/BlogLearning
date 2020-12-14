@@ -17,7 +17,7 @@ deformed_control_points = np.array([[0.1, 0.2, 0.3], [0., 0., 1.],
 # RBF function
 func_name = "gaussian_spline"
 # RBF radius
-radius = 0.5
+radius = 1.0
 
 rbf = RBF(original_control_points,deformed_control_points,func_name,radius)
 
@@ -48,8 +48,8 @@ orig = ax.scatter(original_control_points[:, 0],
 defor=ax.scatter(deformed_control_points[:, 0],
             deformed_control_points[:, 1],
             deformed_control_points[:, 2],
-            c='red',
-            marker='x')
+            c='green',
+            marker='o')
 
 plt.legend((ori_mesh,def_mesh,orig, defor), 
             ('Original mesh', 'Deformed mesh', 'Original points', 'Deformed points'),
