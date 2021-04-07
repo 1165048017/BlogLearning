@@ -31,6 +31,12 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_gif/e9lAmYolz6yOibGgyeUv0vuzbpJoFGxnyf73aIZsHLsxLw5Fvs6IrGjCSrSoNLwUrn6IRuqtuXvLDeq3qjibU4mA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
 
+## 表情驱动
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/Blendshapes/StrongtrackAnalysis), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484305&idx=1&sn=9f4f25d825a168598945e777d76cbbdf&chksm=fc32a9b5cb4520a3eb1ddb5fd781c37bcd69dbec88e5bfa6ef7d0d537403eac4d12d630fa91e&token=790768732&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ywfkVcTJ9toDqBjYx0iao2AKoYADmB96dKr6qsDRo9l42ocA57KMibD65ZwJS4ZoxxsB0nyt7q9org/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## OpenVINO道路分割
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpenVINO), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484027&idx=1&sn=d2471bd2adbe16a8367969089e900e10&chksm=fc32a85fcb452149ecaf59540fc5ec53365904425e937845238ab00e39b21fb941ed750e737f&token=826172642&lang=zh_CN#rd)
