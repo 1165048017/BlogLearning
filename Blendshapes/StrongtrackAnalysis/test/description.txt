@@ -1,0 +1,5 @@
+test1:
+browInnerUp:0.5	jawopen:0.5	mouthSmileLeft:0.8       mouthSmileRight:0.7
+
+test2:
+jawopen:0.2 	mouthSmileLeft:0.5
