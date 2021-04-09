@@ -87,6 +87,12 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zVDvwIleicxPH35jBuNouPSia5T0ibGyDLxHkpJOqehibpqkjnmj1KK4vaIF3NnicAaRsPj5XAggBKkqQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+## 头部姿态估计
+
+[代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/HeadPose), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484341&idx=1&sn=486a590321a2d3b2180d2ba8cffb939e&chksm=fc32a991cb4520876778d3744bb1fda78c243a15be21c3186323d575862105bdc28033a01ba5&token=790768732&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6zq6IuoE5WPlpIvZ88XLoia2mq1ODlLKXBkeGZgDm6sK5lNWEegI9YNGskr7Ov56AFarbGezLiaCA6Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 ## OpenCV轮廓检测
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/OpenCV/contours)   [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484137&idx=1&sn=4dbec20bbd711dac52cbc5597421f6ae&chksm=fc32a8cdcb4521db470b36b40e98a710dc2743c163894a0e2d75c96008d60d0220e03c2a2394&token=1146064727&lang=zh_CN#rd)
