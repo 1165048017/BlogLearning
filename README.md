@@ -31,11 +31,17 @@
 
 ![](https://mmbiz.qpic.cn/mmbiz_gif/e9lAmYolz6yOibGgyeUv0vuzbpJoFGxnyf73aIZsHLsxLw5Fvs6IrGjCSrSoNLwUrn6IRuqtuXvLDeq3qjibU4mA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
 
-## 表情驱动
+## 表情驱动——基于表情系数
 
 [代码](https://github.com/1165048017/BlogLearning/tree/master/Blendshapes/StrongtrackAnalysis), [理论](https://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484305&idx=1&sn=9f4f25d825a168598945e777d76cbbdf&chksm=fc32a9b5cb4520a3eb1ddb5fd781c37bcd69dbec88e5bfa6ef7d0d537403eac4d12d630fa91e&token=790768732&lang=zh_CN#rd)
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ywfkVcTJ9toDqBjYx0iao2AKoYADmB96dKr6qsDRo9l42ocA57KMibD65ZwJS4ZoxxsB0nyt7q9org/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+## 表情驱动二——基于网格形变迁移
+
+[代码],[理论](http://mp.weixin.qq.com/s?__biz=MzU1NzU2MzcyMw==&mid=2247484459&idx=1&sn=e60ea4bb23f00cf0e34c46548cea3ea5&chksm=fc32ae0fcb452719f2c89b6782e4720ba0ee6dace311e92f6659d9bc3a2426e47548b89b8883&token=833214437&lang=zh_CN#rd)
+
+![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ywhqBD1ibYZzfTNhEPk1zl4XKV4Ic2EickCxFt2Fl8pQgn6emffp9243j6nicFJdaA19oLJg2dxMXbA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)![](https://mmbiz.qpic.cn/mmbiz_png/e9lAmYolz6ywhqBD1ibYZzfTNhEPk1zl4UvkYQ98iaer6P8SPc2biacN4Y7XoZCE5441f7S0ZWYxkv6IYicicfrjIMg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## OpenVINO道路分割
 
