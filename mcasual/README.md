@@ -1,3 +1,5 @@
+this script is used to descript the problems in `animmorph` and `mcjobjstomorphingprop`
+the video demonstarte is here:https://youtu.be/AQuM2BCCBq0
 # `AnimMorph`
 
 git url : https://github.com/versluis/animmorph
