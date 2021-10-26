@@ -1,0 +1,730 @@
+// DAZ Studio version 3.1  filetype DAZ Script
+
+//===================================================================
+// Create by mCasual/Jacques
+// Modify by Tencent/BingoZhou
+//===================================================================
+// Copyright (c) <2012> <mCasual/Jacques>
+// Permission is hereby granted, free of charge, to any person
+// obtaining a copy of this software and associated documentation
+// files (the "Software"), to use and copy the Software.
+//
+// Selling, re-selling the software, unmodified, is not allowed.
+//
+// Subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be
+// included in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+// OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+// OTHER DEALINGS IN THE SOFTWARE.
+//===================================================================
+var appName = "mcjObjsToMorphingProp";
+
+var default_ed1text = "c:/cape_000001.obj";
+var default_scaGB_selected = 0;
+var default_wAniStep_value = 1;
+var default_wAniStart_value = 0;
+var default_wAniEnd_value = 1;
+
+var g_basename;	//baseName of the .obj
+
+var tick = Scene.getTimeStep()
+
+var wAniStart = 0;
+var wAniEnd = 0;
+
+
+
+var wDlg = new DzDialog();
+wDlg.caption = appName + " by Tencent/BingoZhou";
+var wDlgLayout = new DzGridLayout( wDlg );
+wDlgLayout.margin = 8;
+wDlgLayout.spacing = 8;
+
+
+var userGB = new DzVGroupBox( wDlg );
+userGB.columns = 2
+userGB.title = "Reference object: First .obj file of a sequence of obj files."
+
+var btn1 = new DzPushButton( userGB )
+btn1.text = "Browse...";
+connect( btn1, "clicked()", pathBrowse );
+
+var ed1 = new DzLineEdit( userGB );
+ed1.text =  getSetting( "ed1", default_ed1text );
+ed1.readOnly = true;
+
+new DzLabel( userGB ).text = "path and prefix";
+var ed2 = new DzLineEdit( userGB );
+ed2.readOnly = true;
+
+new DzLabel( userGB ).text = "zero padding";
+var ed3 = new DzLineEdit( userGB );
+ed3.readOnly = true;
+
+new DzLabel( userGB ).text = "first #";
+var ed4 = new DzLineEdit( userGB );
+ed4.readOnly = true;
+
+new DzLabel( userGB ).text = "last #";
+var ed5 = new DzLineEdit( userGB );
+
+getPathAndPadding();
+
+var cpt = 0;
+
+wDlgLayout.addWidget( userGB, cpt++, 0 );
+
+var scaGB = new DzVButtonGroup( wDlg );
+scaGB.columns = 3;
+scaGB.title = "obj import scale"
+
+btna = new DzRadioButton( scaGB );
+btna.text = "Poser ( 243.84 )";
+btnb = new DzRadioButton( scaGB );
+btnb.text = "Blender ( 50 )";
+btnc = new DzRadioButton( scaGB );
+btnc.text = "Carrara ( 2.54 )";
+btnd = new DzRadioButton( scaGB );
+btnd.text = "Daz Studio ( 1 )";
+btne = new DzRadioButton( scaGB );
+btne.text = "Custom";
+
+scaGB.selected = getSetting( "scaGB_selected", default_scaGB_selected );
+
+edScale = new DzLineEdit( scaGB );
+edScale.maxWidth = 80;
+edScale.text = 10;
+wDlgLayout.addWidget( scaGB, cpt++, 0 );
+
+//. . . . . . . . . . . . . . . . . . . . . . . . . . 
+var aniGB = new DzVGroupBox( wDlg );
+aniGB.columns = 2
+aniGB.title = "morph animation"
+
+var max = new Number( ed5.text ) - new Number( ed4.text );
+wAniStart = addSlider( aniGB, "Start Morph", 0, max, getSetting( "wAniStart_value",default_wAniStart_value ) );
+wAniEnd = addSlider( aniGB, "End Morph", 0, max, getSetting( "wAniEnd_value",default_wAniEnd_value ) );
+var step = getSetting( "wAniStep_value",default_wAniStep_value );
+wAniStep = addSlider( aniGB, "Step (frames)", 1, 10, step );
+new DzLabel(aniGB).text = "note: the entire playrange will be\n animated. Looping will occur if needed."
+
+wDlgLayout.addWidget( aniGB, cpt++, 0 );
+
+//. . . . . . . . . . . . . . . . . . . . . . . . . . 
+var btnGB = new DzVGroupBox( wDlg );
+btnGB.columns = 3
+
+var wResetBtn = new DzPushButton( btnGB );
+wResetBtn.text = "Defaults";
+connect( wResetBtn, "clicked()", factoryReset );
+
+var wGotoBtn = new DzPushButton( btnGB );
+wGotoBtn.text = "&Web Help";
+connect( wGotoBtn, "clicked()", gotoWebHelp );
+
+var wAcceptBtn = new DzPushButton( btnGB );
+wAcceptBtn.text = "Objs To Morphs";
+connect( wAcceptBtn, "clicked()", doit );
+
+var wAnimBtn = new DzPushButton( btnGB );
+wAnimBtn.text = "Animate morphs";
+connect( wAnimBtn, "clicked()", animate );
+
+var wCleanBtn = new DzPushButton( btnGB );
+wCleanBtn.text = "Fix bad .obj";
+connect( wCleanBtn, "clicked()", cleanObj );
+
+var wCancelBtn = new DzPushButton( btnGB );
+wCancelBtn.text = "&Exit";
+wDlg.setRejectButton( wCancelBtn );
+
+wDlgLayout.addWidget( btnGB, cpt++, 0 );
+
+//wDlg.width = 600-6;
+//wDlg.height = 500;
+
+wDlg.exec();
+
+saveAllSettings()
+
+
+//==================================================================
+//
+//==================================================================
+function addSlider( gb, label, min, max, val )
+{
+	var sld = new DzIntSlider( gb );
+	sld.clamped = true;	
+	sld.labelVisible = true;
+	sld.label = label;
+	sld.max = max;
+	sld.min = min;
+	sld.value = val;
+	return( sld );
+}
+
+//==================================================================
+//
+//==================================================================
+function factoryReset()
+{
+	ed1.text = default_ed1text;
+	getPathAndPadding();
+	scaGB.selected = default_scaGB_selected;
+	wAniStep.value = default_wAniStep_value;
+	wAniStart.value = default_wAniStart_value;
+	wAniEnd.value = default_wAniEnd_value;
+	saveAllSettings()
+}
+
+//==================================================================
+//
+//==================================================================
+function saveAllSettings()
+{
+	saveSetting( "ed1", ed1.text );
+	saveSetting( "scaGB_selected", scaGB.selected );
+	saveSetting( "wAniStep_value", wAniStep.value )
+	saveSetting( "wAniStart_value", wAniStart.value )
+	saveSetting( "wAniEnd_value", wAniEnd.value )
+}
+
+//==================================================================
+//
+//==================================================================
+function gotoWebHelp()
+{
+	App.showURL( "https://sites.google.com/site/mcasualsdazscripts2" );
+}
+
+//==================================================================
+// registry, save number/string
+//==================================================================
+function saveSetting( key, keyVal )
+{
+	var m_oMgr = App.getAppSettingsMgr();
+	m_oMgr.pushPath( appName );
+	m_oMgr.setStringValue( key, keyVal );
+	m_oMgr.popPath();
+}
+
+//==============================================================================
+// registry, get number/string
+//==============================================================================
+function getSetting( key, defVal )
+{
+	var m_oMgr = App.getAppSettingsMgr();
+	m_oMgr.pushPath( appName );
+	var val = m_oMgr.getStringValue( key, defVal );
+	m_oMgr.popPath();
+	return ( val );
+}
+
+//==================================================================
+// note: hard wired to widget ed8
+//==================================================================
+function pathBrowse()
+{
+	var path = FileDialog.doFileDialog(  true, "Select the first of a sequence of Obj files", ed1.text, "Wavefront Files (*.obj)" );
+	if( path )
+	{
+		ed1.text = path;
+		getPathAndPadding();
+	}
+}
+
+//=========================================================================
+//
+//=========================================================================
+function getPathAndPadding()
+{
+	var fullpath = ed1.text;
+	var f = new DzFileInfo( fullpath );
+	g_basename = f.completeBaseName()
+	len = g_basename.length;
+	var i;
+	for( i = 0; i < len; i++ )
+	{
+		var k = g_basename.charAt( len-1-i );
+		if( !isDigit( k ) )
+			break;
+	}
+	ed2.text = f.path() + "/" + g_basename.left( len - i );
+
+	if( i == 0 )
+	{
+		ed3.text = "-1";
+		ed4.text = "-1";
+		ed5.text = "-1";
+		return;
+	}
+	//note, since this is deemed the first of the sequence
+	//the following files have the same number of digits or more
+	//it is therefore safe to do numzero-padding = numdigits
+	ed3.text = i;
+	var index = new Number( g_basename.right( i ) );
+	ed4.text = index;
+	ed5.text = getLast(f.dir().count());		
+	
+	var start = new Number( ed5.text );
+	var max = start - new Number( ed4.text );
+	if( wAniStart )
+	{
+		wAniStart.max = max;
+		wAniStart.value = 0;
+	}
+	if( wAniEnd )
+	{
+		wAniEnd.max = max;
+		wAniEnd.value = max;
+	}
+}
+
+//=========================================================================
+//
+//=========================================================================
+function isDigit( k )
+{
+	if( k < "0" )
+		return( false );
+	if( k > "9" )
+		return( false );
+	return( true );
+}
+
+//=========================================================================
+//
+//=========================================================================
+function doit()
+{
+	var prefix = ed2.text
+	var pad = new Number( ed3.text );
+	if( pad < 0 )
+	{
+		MessageBox.information( "Problem the .obj file is not a valid numbered file.", appName, "&OK" );
+		return( -1 );
+	}
+	
+	var start = new Number( ed4.text ) + 1;
+	if( start < 0 )
+	{
+		MessageBox.information( "Problem: start < 0", appName, "&OK" );
+		return;
+	}
+	var end = new Number( ed5.text )
+	if( end < start ) 
+	{
+		MessageBox.information( "Problem: the specified .obj files were not found", appName, "&OK" );
+		return;
+	}
+
+	var scale = 1;
+	switch( scaGB.selected )
+	{
+		case 0: //poser
+			scale = 243.84;
+		break; 
+		case 1: //Blender
+			scale = 50;
+		break; 
+		case 2: //Carrara
+			scale = 2.54;
+		break; 
+		case 3: //Daz Studio
+			scale = 1;
+		break; 
+		case 4: //Custom
+			scale = new Number( edScale.text );
+		break; 
+	}
+	
+	if( scale <= 0 )
+	{
+		scale = 1;
+	}
+	
+	var node = Scene.getPrimarySelection();
+	
+	if( !node )
+	{
+		MessageBox.information( 
+			"Problem: you did not select a target object\n"+
+			"Please import ( File / Import ) the first .obj file\n"+
+			"of your sequence of .obj files. If the .obj file\n"+
+			"was exported from Blender, in some cases\n"+
+			"the .obj file contains errors which prevents\n"+
+			"Studio from loading it. You may want to use the\n"+
+			"[Fix bad .obj] button to fix this", 
+			appName,
+			"&OK" );
+	}
+	for(  var i = start; i <= end; i++ )
+	{
+		var fullPath = prefix + padd( pad, i ) + ".obj";
+		var bOk = SubDoitDoIt( node, fullPath, i, scale, "morph " + (i-start+1) + " of " + (end-start+1));
+		if( !bOk )
+		{
+			break;
+		}
+	}
+}
+
+//=========================================================================
+//
+//=========================================================================
+function getLast(predCount)
+{
+	var prefix = ed2.text
+	var pad = new Number( ed3.text );	
+	if( pad < 0 )
+	{
+		return( -1 );
+	}
+	var first = new Number( ed4.text );
+	var i;
+	for(  i = 0; i < predCount; i++ )
+	{
+		fullPath = prefix + padd( pad, i + first ) + ".obj";
+		var f = new DzFileInfo( fullPath );
+		if( !f.exists() )
+		{
+			break;
+		}
+	}
+	return( i -1 + first );
+}
+
+//=========================================================================
+//
+//=========================================================================
+function SubDoitDoIt( nodeRef, fullPath, id, scale, progressTitle )
+{
+	var edName = fullPath.slice(fullPath.lastIndexOf('/')+1,fullPath.lastIndexOf('.')); //"fr_" + id;
+	var edTargetGeom = edName;
+	
+	var objRef 	= nodeRef.getObject(  );
+	if( !objRef )
+	{
+		MessageBox.information( 
+			"Problem: the selected target has no geometry.", appName, "&OK" );
+		return( false );
+	}
+	var geoRef 	= objRef.getCurrentShape().getGeometry ()
+	if( !geoRef )
+	{
+		MessageBox.information( 
+			"Problem: the selected target has no geometry.", appName, "&OK" );
+		return( false );
+	}
+
+	//ref and morph must have exactly the same number of vertices
+	var numVerticesRef    = geoRef.getNumVertices ();
+
+	var i, j, bFound, vRef, vTarget, vMorph, dx, dy, dz;
+
+	var morphDeltas = new DzMorphDeltas();
+	
+	var file = new DzFile( fullPath );
+	if( !file )
+	{
+		MessageBox.information( 
+			"Problem: unable to open file " + fullPath, appName, "&OK" );
+		return( false );
+	}
+
+	var bOK = file.open( file.ReadOnly )
+	if( !bOK )
+	{
+		MessageBox.information( 
+			"Problem: unable to open file " + fullPath, appName, "&OK" );
+		return( false );
+	}
+
+	var i = 0;
+	var x = y = zz = 0;
+	var vRef
+	var w = new Array(4)
+	startProgress( "Processing " + progressTitle + ", " +  numVerticesRef + " vertices", numVerticesRef, true , true );
+	updateProgress( 0 );	
+	while( !file.eof() )
+	{
+		if( ( i % 100 ) == 0 )
+		{
+			updateProgress( i );	
+			processEvents();
+   
+		}
+		if( progressIsCancelled() )
+		{
+			finishProgress();
+			return( false );
+		}
+		var str = file.readLine();
+		if( str.startsWith( "v " ) )
+		{
+			if( i >= numVerticesRef )
+			{
+				finishProgress();
+				MessageBox.information( 
+					"Problem: the obj file\n [" 
+					+ fullPath 
+					+"]\n"
+					+"contains more vertices than the target object\n"
+					+"and is therefore not valid.\n\n"
+					+"Processing halted.", appName, "&OK" );				
+				return( false );
+			}
+			str = str.replace( "\n", "" );//essential for daz 1 
+			str = str.replace( "\r", "" ); //essential for daz 1 
+			w = str.split( " " );
+			x = ( w[1] ) * scale;
+			y = ( w[2]  ) * scale;
+			zz = ( w[3]  ) * scale;
+			vRef   = geoRef.getVertex( i );
+			dx =  x - vRef.x ;
+			dy =  y - vRef.y ;
+			dz =  zz - vRef.z ;
+			if(  Math.abs(dx) >= 0.01 || Math.abs(dy) >= 0.01 || Math.abs(dz) >= 0.01 )
+			{
+				morphDeltas.addDelta( i, dx, dy, dz ); 
+			}
+			++i;
+		}
+	}
+	finishProgress();
+	file.close();
+	var modifier = objRef.findModifier( edTargetGeom );
+	if( !modifier )
+	{	
+		modifier = new 	DzMorph( morphDeltas );
+		modifier.setLabel( edName );
+		modifier.setName( edTargetGeom );
+		objRef.addModifier( modifier );
+	}
+	else
+	{
+		modifier.setDeltas( morphDeltas );
+		modifier.getValueChannel().setHidden( false );
+	}
+	modifier.getValueChannel().setLabel( edName );	
+	return( true );
+}
+
+//=========================================================================
+//
+//=========================================================================
+function padd( n, i )
+{
+	if( n <= 0 )
+		return( i ); 
+	var str = "" + i;
+	if( str.length >= n )
+		return( i );	
+	var zerostr = "0000000000" + i;
+	return( zerostr.right( n ) );
+}
+
+//=========================================================================
+// some objs exported by Blender ( in Cycles mode only? )
+// can have zero-length material names, in the .obj and in the .mtl
+// this causes load failure in daz, so we process the .obj and .mtl
+// and fix this
+//=========================================================================
+function cleanObj()
+{
+	if( MessageBox.question( 
+		"\n" + appName + " is about to:\n\n" +
+		"- Open the file\n\n" +
+		"    '" + ed1.text + "'\n\n" +
+		"- Write to disk a cleaned version of that file\n" +
+		"- Delete the file\n" +
+		"- Replace it with the cleaned version.\n\n" +
+		"If something goes wrong this file could be lost.\n\n" +
+		"Proceed?\n", appName, "&Yes", "&No" ) == 0 )
+	{
+		fixObj( ed1.text );
+		fixMtl( ed1.text );
+	}
+}
+
+//=================================================
+//
+//=================================================
+function fixMtl( objFilename )
+{
+	var fi = new DzFileInfo( objFilename );
+	var pathOut = fi.path();
+	var prefix =  fi.baseName();
+	for( var i = 0; i < 10; i++ )
+	{
+		prefix = prefix.replace( " ", "_" )
+	}
+	var filenameIn = pathOut + "/" + prefix+ ".mtl";
+
+	var filenameOut = pathOut + "/" + prefix+ ".tmp";
+	
+	var inFile = new DzFile( filenameIn );
+	if( ! inFile )	
+	{
+		MessageBox.information( "Problem: Unable to open " + filenameIn , appName, "&OK" );
+		return;
+	}
+	var bOpen = inFile.open( inFile.ReadOnly  );
+	if( !bOpen )
+	{
+		MessageBox.information( "Problem: Unable to open " + filenameIn,  appName, "&OK" );
+		return;
+	}
+	var outFile = new DzFile( filenameOut );
+	outFile.open( inFile.WriteOnly  );
+	while( !inFile.eof() )
+	{
+		var str = inFile.readLine();
+		if( str == "newmtl \n" )
+		{
+			str = "newmtl default\n"
+		}
+		outFile.write( str );
+	}
+	outFile.close();
+	inFile.close();
+	inFile.remove();
+	new DzDir("").rename( filenameOut, filenameIn ); 
+}
+
+//=================================================
+//
+//=================================================
+function fixObj( objFilename )
+{
+	var filenameOut = objFilename + ".tmp";
+	var inFile = new DzFile( objFilename );
+	if( ! inFile )	
+	{
+		MessageBox.information( "Problem: Unable to open " + filenameIn , appName, "&OK" );
+		return;
+	}
+	var bOpen = inFile.open( inFile.ReadOnly  );
+	if( !bOpen )
+	{
+		MessageBox.information( "Problem: Unable to open " + filenameIn,  appName, "&OK" );
+		return;
+	}
+	var outFile = new DzFile( filenameOut );
+	outFile.open( inFile.WriteOnly  );
+	while( !inFile.eof() )
+	{
+		var str = inFile.readLine();
+		if( str == "usemtl \n" )
+		{
+			str = "usemtl default\n"
+		}
+		outFile.write( str );
+	}
+	outFile.close();
+	inFile.close();
+	inFile.remove();
+	new DzDir("").rename( filenameOut, objFilename ); 
+}
+
+//=================================================
+//
+//=================================================
+function animate()
+{
+	var startMorph = new Number( wAniStart.value );
+	if( startMorph < 0 )
+	{
+   		MessageBox.information( "Problem: Start morph number < 0",  appName, "&OK" );
+		return;
+	}
+	var endMorph = new Number( wAniEnd.value )
+	if( endMorph < startMorph ) 
+	{
+   		MessageBox.information( "Problem: End morph number < Start morph number",  appName, "&OK" );
+		return;
+	}
+	var node = Scene.getPrimarySelection();
+	var objRef = node.getObject(  );
+	if( !objRef ) 
+	{
+   		MessageBox.information( "No object selected?",  appName, "&OK" );
+		return;
+	}
+	
+	var playRange = Scene.getPlayRange();
+	var frStart = playRange.start / tick;
+	var frEnd = playRange.end / tick;
+	var step = new Number( wAniStep.text );
+	if( step <= 0 )
+	{
+	    step = 1;
+	}
+	var morphNo = startMorph
+	var prefix = ed2.text
+	var pad = new Number( ed3.text );
+	for(  var fr = frStart; fr <= frEnd; fr += step )
+	{
+	    animateOne( prefix, pad, objRef, morphNo, fr, step );
+	    ++morphNo;
+	    if( morphNo > endMorph )
+	    {
+		morphNo = startMorph;
+	    }
+	}
+
+ 	beginUndo();
+	
+	
+	for( var m = startMorph; m <= endMorph; m++ )
+	{
+	    var edName = prefix.slice(prefix.lastIndexOf('/')+1)+padd(pad,m); //"fr_" + m;
+	    var edTargetGeom = edName;
+	    var modifier = objRef.findModifier( edTargetGeom );
+	    if( modifier )
+	    {
+			var prop = modifier.getValueChannel();
+			var n = prop.getNumKeys();
+			for( var i = 0; i < n; i++ )
+			{
+		   		prop.setKeyInterpolation ( i, prop.LINEAR_INTERP);
+			}
+    	}
+	} 
+	
+	acceptUndo( appName )
+
+}
+
+//=========================================================================
+//
+//=========================================================================
+function animateOne(prefix, pad, objRef,morphNo, fr, step )
+{    
+    if( morphNo == 0 )
+    {
+	// idle morph, leave all channels at 0
+		return;
+    }
+    var edName = prefix.slice(prefix.lastIndexOf('/')+1)+padd(pad,morphNo);;//"fr_" + morphNo;
+    var edTargetGeom = edName;
+    var modifier = objRef.findModifier( edTargetGeom );
+    if( ! modifier )
+		return;
+    var prop = modifier.getValueChannel();
+    if( fr >= step )
+    {
+	prop.setValue( ( fr-step) * tick, 0 );
+    }
+    prop.setValue( fr * tick, 1);
+    prop.setValue( ( fr + step ) * tick, 0 );
+    App.statusLine( "animation ready", false );
+}
